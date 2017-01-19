@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/activity_main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="io.github.staray.memorygame.main.MainActivity">
+
+    <TextView
+        android:id="@+id/best_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#555555"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/best_time_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textColor="#333333"
+        android:textSize="16sp"/>
+
+    <Button
+        android:id="@+id/restart_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/countdown_bg"
+        android:padding="8dp"
+        android:text="@string/restart"
+        android:textColor="#333333"
+        android:textSize="16sp"/>
+
+    <GridView
+        android:id="@+id/grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/restart_btn"
+        android:layout_below="@id/time_tv"
+        android:layout_margin="10dp"
+        android:background="#000000"
+        android:gravity="center"
+        android:horizontalSpacing="1dp"
+        android:padding="1dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1dp"/>
+
+    <TextView
+        android:id="@+id/countdown_tv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/countdown_bg"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="80sp"
+        android:visibility="gone"/>
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.github.staray.memorygame.widget.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/item_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:textSize="40sp"
+        android:textStyle="bold"/>
+</io.github.staray.memorygame.widget.SquareLayout>
