@@ -1,14 +1,17 @@
 package io.github.staray.memorygame.data;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
  * Created by staray on 2017/1/19.
+ * <p>
+ * 数据接口实现
  */
 
 public class DataImpl implements Data {
-    private Context context;
+    @SuppressLint("StaticFieldLeak")
     private static DataImpl data;
     private SharedPreferences sharedPreferences;
 
@@ -20,19 +23,18 @@ public class DataImpl implements Data {
     }
 
     private DataImpl(Context context) {
-        this.context = context;
         sharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
     }
 
     @Override
     public int getBestTime() {
-        return sharedPreferences.getInt("best_time", 999999);
+        return sharedPreferences.getInt("best_time" + getRow(), 999999);
     }
 
     @Override
     public void setBestTime(int bestTime) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("best_time", bestTime);
+        editor.putInt("best_time" + getRow(), bestTime);
         editor.apply();
     }
 

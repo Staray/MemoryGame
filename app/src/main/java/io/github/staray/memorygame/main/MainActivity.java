@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private TextView bestTimeTv;
     private TextView timeTv;
     private TextView countdownTv;
-    private Button restartBtn;
     private GridView gridView;
     private GridAdapter gridAdapter;
 
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         bestTimeTv = (TextView) findViewById(R.id.best_time_tv);
         timeTv = (TextView) findViewById(R.id.time_tv);
         countdownTv = (TextView) findViewById(R.id.countdown_tv);
-        restartBtn = (Button) findViewById(R.id.restart_btn);
+        Button restartBtn = (Button) findViewById(R.id.restart_btn);
         restartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,11 +102,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
         private List<String> numList;
 
-        public GridAdapter(List<String> numList) {
+        GridAdapter(List<String> numList) {
             this.numList = numList;
         }
 
-        public void replaceData(List<String> numList) {
+        void replaceData(List<String> numList) {
             this.numList = numList;
             notifyDataSetChanged();
         }

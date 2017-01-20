@@ -17,9 +17,9 @@ import io.github.staray.memorygame.data.Data;
 
 /**
  * Created by staray on 2017/1/19.
+ * 程序主逻辑
  */
-
-public class MainPresenter implements MainContract.Presenter {
+class MainPresenter implements MainContract.Presenter {
     private MainContract.View view;
     private Data data;
 
@@ -35,7 +35,7 @@ public class MainPresenter implements MainContract.Presenter {
     private final static int MSG_FINISH = 1;
     private int row;
 
-    public MainPresenter(MainContract.View view, Data data) {
+    MainPresenter(MainContract.View view, Data data) {
         this.view = view;
         this.data = data;
         view.setPresenter(this);
@@ -91,7 +91,7 @@ public class MainPresenter implements MainContract.Presenter {
         init();
         showBest();
         view.setCountdownVisible(View.VISIBLE);
-        new CountDownTimer(4000, 1000) {
+        new CountDownTimer(3100, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 view.setCountdown(millisUntilFinished / 1000 + "");
@@ -141,8 +141,8 @@ public class MainPresenter implements MainContract.Presenter {
     /**
      * 生成 1-n的随机排列列表
      *
-     * @param n
-     * @return
+     * @param n 最大值
+     * @return 随机排列列表
      */
     private List<String> getRandomId(int n) {
         Integer[] arrayRandom = new Integer[n];

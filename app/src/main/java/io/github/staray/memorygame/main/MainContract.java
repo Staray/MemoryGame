@@ -7,9 +7,10 @@ import io.github.staray.memorygame.BaseView;
 
 /**
  * Created by staray on 2017/1/19.
+ * 程序主契约接口
  */
 
-public interface MainContract {
+interface MainContract {
 
     interface View extends BaseView<Presenter> {
         void setBestTime(String time);
