@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">MemoryGame</string>
     <string name="restart">重新开始</string>
+    <string name="setting">设置</string>
 </resources>

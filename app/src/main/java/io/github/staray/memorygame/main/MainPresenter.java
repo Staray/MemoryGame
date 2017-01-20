@@ -91,6 +91,7 @@ class MainPresenter implements MainContract.Presenter {
         init();
         showBest();
         view.setCountdownVisible(View.VISIBLE);
+        view.setRestartBtnClickable(false);
         new CountDownTimer(3100, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -103,6 +104,7 @@ class MainPresenter implements MainContract.Presenter {
                 genData();
                 view.setTimeVisible(View.VISIBLE);
                 startTiming();
+                view.setRestartBtnClickable(true);
             }
         }.start();
     }
@@ -114,7 +116,7 @@ class MainPresenter implements MainContract.Presenter {
 
     private void genData() {
         result = 1;
-        row = data.getRow();
+        row = data.getLevel() + 3;
         view.setGridRow(row);
 
         List<String> numList = getRandomId(row * row);
@@ -164,5 +166,10 @@ class MainPresenter implements MainContract.Presenter {
         int millisecond = time % 1000;
         return String.format(Locale.getDefault(), "%02d", second) + ":" + String.format(Locale
                 .getDefault(), "%03d", millisecond);
+    }
+
+    @Override
+    public void onDestroy() {
+        cancelTimer();
     }
 }

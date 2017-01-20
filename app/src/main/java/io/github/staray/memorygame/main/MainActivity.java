@@ -1,5 +1,6 @@
 package io.github.staray.memorygame.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import java.util.List;
 
 import io.github.staray.memorygame.R;
 import io.github.staray.memorygame.data.DataImpl;
+import io.github.staray.memorygame.setting.SettingActivity;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private TextView bestTimeTv;
     private TextView timeTv;
     private TextView countdownTv;
+    private Button restartBtn;
     private GridView gridView;
     private GridAdapter gridAdapter;
 
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         bestTimeTv = (TextView) findViewById(R.id.best_time_tv);
         timeTv = (TextView) findViewById(R.id.time_tv);
         countdownTv = (TextView) findViewById(R.id.countdown_tv);
-        Button restartBtn = (Button) findViewById(R.id.restart_btn);
+        restartBtn = (Button) findViewById(R.id.restart_btn);
         restartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +59,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         List<String> numList = new ArrayList<>();
         gridAdapter = new GridAdapter(numList);
         gridView.setAdapter(gridAdapter);
+
+        findViewById(R.id.main_setting_layout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -96,6 +107,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void setTimeVisible(int visible) {
         timeTv.setVisibility(visible);
+    }
+
+    @Override
+    public void setRestartBtnClickable(boolean clickable) {
+        restartBtn.setClickable(clickable);
     }
 
     private class GridAdapter extends BaseAdapter {
@@ -143,5 +159,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             });
             return convertView;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
     }
 }

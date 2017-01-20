@@ -8,6 +8,21 @@
     android:background="#ffffff"
     tools:context="io.github.staray.memorygame.main.MainActivity">
 
+    <FrameLayout
+        android:id="@+id/main_setting_layout"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp">
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_gravity="center"
+            android:src="@drawable/setting"/>
+    </FrameLayout>
+
     <TextView
         android:id="@+id/best_time_tv"
         android:layout_width="wrap_content"
@@ -35,8 +50,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/countdown_bg"
-        android:padding="8dp"
+        android:background="@drawable/restart_btn_style"
+        android:paddingBottom="8dp"
+        android:paddingEnd="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingStart="20dp"
+        android:paddingTop="8dp"
         android:text="@string/restart"
         android:textColor="#333333"
         android:textSize="16sp"/>

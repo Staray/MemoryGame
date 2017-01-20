@@ -26,9 +26,13 @@ interface MainContract {
         void replaceData(List<String> numList);
 
         void setGridRow(int row);
+
+        void setRestartBtnClickable(boolean clickable);
     }
 
     interface Presenter extends BasePresenter {
         void onItemClick(int num);
+
+        void onDestroy();
     }
 }

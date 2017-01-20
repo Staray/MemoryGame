@@ -11,7 +11,7 @@ public interface Data {
 
     void setBestTime(int bestTime);
 
-    int getRow();
+    int getLevel();
 
-    void setRow(int row);
+    void setLevel(int level);
 }

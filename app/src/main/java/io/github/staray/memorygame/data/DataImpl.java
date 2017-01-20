@@ -28,25 +28,25 @@ public class DataImpl implements Data {
 
     @Override
     public int getBestTime() {
-        return sharedPreferences.getInt("best_time" + getRow(), 999999);
+        return sharedPreferences.getInt("best_time" + getLevel(), 999999);
     }
 
     @Override
     public void setBestTime(int bestTime) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("best_time" + getRow(), bestTime);
+        editor.putInt("best_time" + getLevel(), bestTime);
         editor.apply();
     }
 
     @Override
-    public int getRow() {
-        return sharedPreferences.getInt("row", 5);
+    public int getLevel() {
+        return sharedPreferences.getInt("level", 2);
     }
 
     @Override
-    public void setRow(int row) {
+    public void setLevel(int level) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("row", row);
+        editor.putInt("level", level);
         editor.apply();
     }
 }
