@@ -28,6 +28,7 @@ class MainPresenter implements MainContract.Presenter {
 
     private Timer timer;
     private TimerTask timerTask;
+    private CountDownTimer countDownTimer;
 
     private int result = 1;
 
@@ -62,6 +63,22 @@ class MainPresenter implements MainContract.Presenter {
                 }
             }
         };
+
+        countDownTimer = new CountDownTimer(3100, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                view.setCountdown(millisUntilFinished / 1000 + "");
+            }
+
+            @Override
+            public void onFinish() {
+                view.setCountdownVisible(View.GONE);
+                genData();
+                view.setTimeVisible(View.VISIBLE);
+                startTiming();
+                view.setRestartBtnClickable(true);
+            }
+        };
     }
 
     private void initTimer() {
@@ -92,21 +109,7 @@ class MainPresenter implements MainContract.Presenter {
         showBest();
         view.setCountdownVisible(View.VISIBLE);
         view.setRestartBtnClickable(false);
-        new CountDownTimer(3100, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                view.setCountdown(millisUntilFinished / 1000 + "");
-            }
-
-            @Override
-            public void onFinish() {
-                view.setCountdownVisible(View.GONE);
-                genData();
-                view.setTimeVisible(View.VISIBLE);
-                startTiming();
-                view.setRestartBtnClickable(true);
-            }
-        }.start();
+        countDownTimer.start();
     }
 
     private void showBest() {
@@ -171,5 +174,6 @@ class MainPresenter implements MainContract.Presenter {
     @Override
     public void onDestroy() {
         cancelTimer();
+        countDownTimer.cancel();
     }
 }
