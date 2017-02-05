@@ -10,7 +10,7 @@
         android:background="@drawable/item_bg"
         android:clickable="true"
         android:gravity="center"
-        android:textColor="#333333"
+        android:textColor="@color/restart_btn_text_style"
         android:textSize="40sp"
         android:textStyle="bold"/>
 </io.github.staray.memorygame.widget.SquareLayout>

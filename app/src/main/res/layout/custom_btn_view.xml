@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="45dp"
+             android:layout_height="45dp"
+             android:background="@drawable/setting_btn_style"
+             android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/custom_btn_iv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center"/>
+</FrameLayout>

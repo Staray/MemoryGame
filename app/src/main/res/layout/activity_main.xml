@@ -2,26 +2,22 @@
 <RelativeLayout
     android:id="@+id/activity_main"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
     tools:context="io.github.staray.memorygame.main.MainActivity">
 
-    <FrameLayout
+
+    <io.github.staray.memorygame.widget.CustomButton
         android:id="@+id/main_setting_layout"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="5dp">
-
-        <ImageView
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            android:layout_gravity="center"
-            android:src="@drawable/setting"/>
-    </FrameLayout>
+        android:layout_margin="5dp"
+        app:imageSrc="@drawable/set"/>
 
     <TextView
         android:id="@+id/best_time_tv"
@@ -58,7 +54,7 @@
         android:paddingStart="20dp"
         android:paddingTop="8dp"
         android:text="@string/restart"
-        android:textColor="#333333"
+        android:textColor="@color/restart_btn_text_style"
         android:textSize="16sp"/>
 
     <FrameLayout
@@ -73,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:background="#000000"
+            android:background="#333333"
             android:gravity="center"
             android:horizontalSpacing="1dp"
             android:padding="1dp"
