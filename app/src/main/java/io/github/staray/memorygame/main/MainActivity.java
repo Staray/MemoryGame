@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +16,7 @@ import java.util.List;
 import io.github.staray.memorygame.R;
 import io.github.staray.memorygame.data.DataImpl;
 import io.github.staray.memorygame.setting.SettingActivity;
+import io.github.staray.memorygame.widget.SquareGridView;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private TextView timeTv;
     private TextView countdownTv;
     private Button restartBtn;
-    private GridView gridView;
+    private SquareGridView gridView;
     private GridAdapter gridAdapter;
 
     @Override
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
                 presenter.start();
             }
         });
-        gridView = (GridView) findViewById(R.id.grid_view);
+        gridView = (SquareGridView) findViewById(R.id.grid_view);
         List<String> numList = new ArrayList<>();
         gridAdapter = new GridAdapter(numList);
         gridView.setAdapter(gridAdapter);

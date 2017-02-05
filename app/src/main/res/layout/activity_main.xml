@@ -61,19 +61,26 @@
         android:textColor="#333333"
         android:textSize="16sp"/>
 
-    <GridView
-        android:id="@+id/grid_view"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_above="@id/restart_btn"
-        android:layout_below="@id/time_tv"
-        android:layout_margin="10dp"
-        android:background="#000000"
-        android:gravity="center"
-        android:horizontalSpacing="1dp"
-        android:padding="1dp"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="1dp"/>
+        android:layout_below="@id/time_tv">
+
+        <io.github.staray.memorygame.widget.SquareGridView
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="#000000"
+            android:gravity="center"
+            android:horizontalSpacing="1dp"
+            android:padding="1dp"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="1dp"/>
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/countdown_tv"
