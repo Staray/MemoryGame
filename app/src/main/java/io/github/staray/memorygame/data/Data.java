@@ -14,4 +14,6 @@ public interface Data {
     int getLevel();
 
     void setLevel(int level);
+
+    String getInfo();
 }

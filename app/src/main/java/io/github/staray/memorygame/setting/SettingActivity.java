@@ -1,6 +1,7 @@
 package io.github.staray.memorygame.setting;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 
 import io.github.staray.memorygame.R;
 import io.github.staray.memorygame.data.DataImpl;
+import io.github.staray.memorygame.info.InfoActivity;
 
 /**
  * Created by staray on 2017/1/20.
@@ -55,6 +57,14 @@ public class SettingActivity extends Activity implements SettingContract.View {
             @Override
             public void onClick(View v) {
                 SettingActivity.this.finish();
+            }
+        });
+
+        findViewById(R.id.setting_info_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SettingActivity.this, InfoActivity.class);
+                startActivity(intent);
             }
         });
     }

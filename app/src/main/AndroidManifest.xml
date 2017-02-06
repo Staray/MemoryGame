@@ -22,8 +22,11 @@
             android:name=".setting.SettingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-
         </activity>
+        <activity
+            android:name=".info.InfoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>

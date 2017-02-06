@@ -11,7 +11,7 @@
         android:layout_height="45dp">
 
         <io.github.staray.memorygame.widget.CustomButton
-            android:id="@+id/setting_back_layout"
+            android:id="@+id/info_back_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -22,34 +22,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/setting"
+            android:text="@string/info"
             android:textColor="#333333"
             android:textSize="18sp"/>
-
-        <io.github.staray.memorygame.widget.CustomButton
-            android:id="@+id/setting_info_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            app:imageSrc="@drawable/info"/>
     </RelativeLayout>
 
     <TextView
-        android:id="@+id/setting_level_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
-        android:textColor="#333333"
-        android:textSize="40sp"/>
-
-    <SeekBar
-        android:id="@+id/setting_seek_bar"
+        android:id="@+id/info_tv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:max="4"
-        android:maxHeight="2dp"
-        android:progressDrawable="@drawable/seek_bar_bg"/>
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:textColor="#333333"
+        android:textSize="16sp"/>
 </LinearLayout>

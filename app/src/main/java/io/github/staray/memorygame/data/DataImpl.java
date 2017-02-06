@@ -3,6 +3,10 @@ package io.github.staray.memorygame.data;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by staray on 2017/1/19.
@@ -14,6 +18,8 @@ public class DataImpl implements Data {
     @SuppressLint("StaticFieldLeak")
     private static DataImpl data;
     private SharedPreferences sharedPreferences;
+    private Context context;
+    private String INFO = "Info";
 
     public static DataImpl getInstance(Context context) {
         if (null == data) {
@@ -24,6 +30,7 @@ public class DataImpl implements Data {
 
     private DataImpl(Context context) {
         sharedPreferences = context.getSharedPreferences("data", Context.MODE_PRIVATE);
+        this.context = context;
     }
 
     @Override
@@ -48,5 +55,21 @@ public class DataImpl implements Data {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("level", level);
         editor.apply();
+    }
+
+    @Override
+    public String getInfo() {
+        try {
+            InputStream in = context.getResources().getAssets().open(INFO);
+            int length = in.available();
+            byte[] buffer = new byte[length];
+
+            in.read(buffer);
+            in.close();
+            return new String(buffer);
+        } catch (IOException e) {
+            Log.e("getInfo", e.getMessage());
+            return null;
+        }
     }
 }
